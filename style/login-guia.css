@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f3f5fa;
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+}
+
+.container {
+    background: white;
+    padding: 25px;
+    width: 380px;
+    border-radius: 25px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.logo {
+    text-align: center;
+    font-size: 28px;
+    color: #5261f2;
+    margin-bottom: 20px;
+}
+
+.titulo {
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.subtitulo {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.input-box {
+    background: #fff;
+    padding: 14px;
+    border-radius: 15px;
+    border: 1px solid #e1e3eb;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.icon {
+    width: 20px;
+    margin-right: 10px;
+    opacity: 0.8;
+}
+
+.input-box input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 15px;
+}
+
+.senha-link {
+    position: absolute;
+    right: 15px;
+    bottom: -18px;
+    font-size: 12px;
+    color: #5261f2;
+    text-decoration: none;
+}
+
+.btn {
+    width: 100%;
+    padding: 14px;
+    background: #5261f2;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.ou {
+    text-align: center;
+    margin-top: 20px;
+    color: #666;
+}
+
+.social-box {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 10px;
+}
+
+.social-box img {
+    width: 32px;
+    cursor: pointer;
+}
+
+.cadastro-text {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cadastro-text a {
+    color: #5261f2;
+    text-decoration: none;
+    font-weight: 500;
+}

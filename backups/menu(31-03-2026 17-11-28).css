@@ -1,0 +1,196 @@
+
+
+/* ================= BASE ================= */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f5f6fa;
+  color: #1a1a1a;
+}
+
+/* ================= HEADER ================= */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px 16px;
+  background-color: #ffffff;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* DIREITA */
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* FOTO */
+.user-photo img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+
+  border: 2px solid #eee;
+}
+
+/* TEXTO */
+.user-info {
+  font-weight: 600;
+  font-size: 12px;
+  max-width: 160px;
+  text-align: right;
+  line-height: 1.2;
+}
+
+/* ================= TOGGLE ================= */
+.toggle {
+  position: relative;
+  width: 38px;
+  height: 20px;
+}
+
+.toggle input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: #dcdde1;
+  border-radius: 20px;
+
+  transition: 0.3s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+
+  width: 16px;
+  height: 16px;
+
+  left: 2px;
+  top: 2px;
+
+  background-color: #ffffff;
+  border-radius: 50%;
+
+  transition: 0.3s;
+}
+
+input:checked + .slider {
+  background-color: #4caf50;
+}
+
+input:checked + .slider::before {
+  transform: translateX(18px);
+}
+
+/* ================= LOCALIZAÇÃO ================= */
+.location-box {
+  position: fixed;
+  top: 70px;
+  right: 12px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 6px 10px;
+
+  font-size: 11px;
+
+  background-color: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #eee;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.location-box button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* ================= PESQUISA ================= */
+.search-box {
+  position: fixed;
+  top: 110px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 90%;
+  max-width: 420px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 12px 16px;
+
+  border-radius: 30px;
+  border: 1px solid #ddd;
+
+  font-size: 14px;
+  background-color: #ffffff;
+
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.search-box input:focus {
+  border-color: #4caf50;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  outline: none;
+}
+
+/* ================= RESPONSIVO ================= */
+
+/* TABLET */
+@media (min-width: 768px) {
+  .header {
+    padding: 16px 24px;
+  }
+
+  .user-photo img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .user-info {
+    font-size: 14px;
+    max-width: 220px;
+  }
+
+  .search-box {
+    max-width: 520px;
+  }
+}
+
+/* COMPUTADOR */
+@media (min-width: 1024px) {
+  body {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .header {
+    padding: 20px 0;
+  }
+
+  .search-box {
+    max-width: 600px;
+  }
+
+  .location-box {
+    right: calc(50% - 430px);
+  }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar no Celular</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+
+    <!-- TELA DE CELULAR -->
+    <div class="phone-background">
+
+        <header class="navbar">
+            <!-- LOGO -->
+            <div class="logo">
+                <img src="logozone.png" alt="Logo">
+            </div>
+
+            <!-- BARRA DE PESQUISA -->
+            <div class="search-box">
+                <input type="text" placeholder="Buscar...">
+            </div>
+
+            <!-- MENU HAMBÚRGUER -->
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- MENU OCULTO -->
+            <nav class="menu" id="menu">
+                <a href="#">Início</a>
+                <a href="#">Sobre</a>
+                <a href="#">Serviços</a>
+                <a href="#">Contato</a>
+            </nav>
+        </header>
+
+    </div>
+
+            <script src="menu.js"></script>
+
+</body>
+</html>

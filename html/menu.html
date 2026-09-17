@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Turista</title>
+    <link rel="stylesheet" href="style/menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- HEADER PRINCIPAL -->
+        <header class="header">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    bom dia
+                    <span style="display: block; font-size: 12px; font-weight: normal; color: var(--secondary-color);">
+                        vamos para mais uma aventura
+                    </span>
+                </a>
+                <button class="menu-button" id="menuButton" aria-label="Abrir menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- MENU LATERAL -->
+        <aside class="side-menu" id="sideMenu">
+            <div class="menu-header">
+                <h2>Menu</h2>
+                <button class="close-menu" id="closeMenu" aria-label="Fechar menu">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <nav class="menu-navigation">
+                <a href="#">
+                    <i class="fa-solid fa-house"></i>
+                    Início
+                </a>
+                <a href="#">
+                    <i class="fa-solid fa-map"></i>
+                    Explorar
+                </a>
+                <a href="#">
+                    <i class="fa-solid fa-heart"></i>
+                    Favoritos
+                </a>
+                <a href="#">
+                    <i class="fa-solid fa-user"></i>
+                    Perfil
+                </a>
+            </nav>
+        </aside>
+
+        <!-- OVERLAY DO MENU -->
+        <div class="menu-overlay" id="menuOverlay"></div>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="main-content">
+            <!-- BUSCA -->
+            <section class="search-section">
+                <div class="search-container">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Buscar lugares..." 
+                        autocomplete="off"
+                    >
+                </div>
+            </section>
+
+            <!-- DESTAQUES / BANNER CARROSSEL -->
+            <section class="banner-section">
+                <h2 class="section-title">Destaques</h2>
+                <div class="carousel">
+                    <div class="carousel-track">
+                        <article class="carousel-slide active">
+                            <img src="https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?auto=format&fit=crop&w=1200&q=80" alt="Lugar turístico em destaque">
+                            <div class="slide-content">
+                                <span>DESCUBRA</span>
+                                <h2>Lugares do<br>momento</h2>
+                                <button>Explorar</button>
+                            </div>
+                        </article>
+                        
+                        <article class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80" alt="Paisagem turística">
+                            <div class="slide-content">
+                                <span>AVENTURA</span>
+                                <h2>Conheça novos<br>destinos</h2>
+                                <button>Explorar</button>
+                            </div>
+                        </article>
+
+                        <article class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80" alt="Natureza e turismo">
+                            <div class="slide-content">
+                                <span>NATUREZA</span>
+                                <h2>Explore novos<br>caminhos</h2>
+                                <button>Explorar</button>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- BOTÕES DE NAVEGAÇÃO -->
+                    <button class="carousel-nav prev" id="prevButton" aria-label="Slide anterior">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-nav next" id="nextButton" aria-label="Próximo slide">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                    <!-- DOTS -->
+                    <div class="carousel-dots">
+                        <button class="dot active" data-slide="0" aria-label="Ir para slide 1"></button>
+                        <button class="dot" data-slide="1" aria-label="Ir para slide 2"></button>
+                        <button class="dot" data-slide="2" aria-label="Ir para slide 3"></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEÇÃO DE GUIAS -->
+            <section class="guides-section">
+                <div class="section-header-link">
+                    <span class="title">Guias</span>
+                    <span class="chevron"></span>
+                </div>
+                
+                <div class="grid">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=400&q=80" alt="Guia turístico 1">
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?auto=format&fit=crop&w=400&q=80" alt="Guia turístico 2">
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/menu.js"></script>
+</body>
+</html>

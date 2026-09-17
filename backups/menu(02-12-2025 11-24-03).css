@@ -1,0 +1,9 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("logomar.png"); /* Coloque o nome da sua imagem */
+    background-size: cover; /* ocupa a tela toda */
+    background-position: center; /* centraliza a imagem */
+    background-repeat: no-repeat; /* não repete */
+    height: 100vh; /* garante 100% da altura */
+}

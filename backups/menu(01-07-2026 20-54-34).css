@@ -1,0 +1,211 @@
+:root {
+    --primary: #0f172a;
+    --accent: #0284c7;
+    --bg-light: #f8fafc;
+    --surface: #ffffff;
+    --text-main: #334155;
+    --text-muted: #64748b;
+    --radius-lg: 16px;
+    --radius-md: 10px;
+    --shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--surface);
+    padding: 12px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #e2e8f0;
+    gap: 12px;
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+}
+.logo i { color: var(--accent); }
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: #f1f5f9;
+    border-radius: 50px;
+    padding: 8px 14px;
+    flex-grow: 1;
+    max-width: 320px;
+    border: 1px solid transparent;
+}
+.search-box:focus-within {
+    background: var(--surface);
+    border-color: var(--accent);
+}
+.search-icon { color: var(--text-muted); margin-right: 8px; font-size: 13px; }
+.search-box input { border: none; outline: none; background: transparent; width: 100%; font-size: 14px; color: var(--primary); }
+
+.nav-menu ul { display: flex; list-style: none; gap: 20px; }
+.nav-menu ul li a { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; }
+.nav-menu ul li a:hover, .nav-menu ul li a.active-link { color: var(--accent); }
+
+.hamburger { display: none; cursor: pointer; flex-direction: column; gap: 4px; padding: 4px; }
+.hamburger .bar { display: block; width: 20px; height: 2px; background-color: var(--primary); border-radius: 2px; transition: 0.3s; }
+
+/* CARROSSEL */
+.carousel-container { position: relative; width: 100%; height: 50vh; overflow: hidden; background: #000; }
+.slide { position: absolute; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transform: scale(1.02); transition: opacity 0.8s ease-in-out, transform 0.8s ease-out; display: flex; align-items: center; padding: 0 8%; }
+.slide::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(15, 23, 42, 0.5), rgba(0,0,0,0.1)); }
+.slide.active { opacity: 1; transform: scale(1); z-index: 1; }
+
+.slide-content { position: relative; z-index: 2; color: white; max-width: 480px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 24px; border-radius: var(--radius-lg); border: 1px solid rgba(255,255,255,0.15); }
+.tag-trending { display: inline-block; font-size: 10px; font-weight: 700; background: var(--accent); padding: 3px 8px; border-radius: 50px; margin-bottom: 8px; }
+.slide-content h1 { font-size: 28px; font-weight: 800; line-height: 1.2; margin-bottom: 8px; }
+.slide-content p { font-size: 14px; opacity: 0.9; margin-bottom: 16px; }
+.btn-primary { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; background: #fff; color: var(--primary); text-decoration: none; border-radius: var(--radius-md); font-weight: 600; font-size: 13px; }
+
+.carousel-dots { position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 10; }
+.dot { width: 16px; height: 3px; background: rgba(255,255,255,0.4); border-radius: 2px; cursor: pointer; }
+.dot.active-dot { background: #fff; }
+
+/* CATEGORIAS */
+.categories-container { display: flex; justify-content: center; gap: 32px; padding: 20px; background: var(--surface); border-bottom: 1px solid #e2e8f0; }
+.category-item { display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--text-muted); cursor: pointer; font-size: 12px; font-weight: 500; }
+.category-item i { font-size: 18px; }
+.category-item.active { color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 2px; }
+
+/* SEÇÃO DE GUIAS */
+.main-section { max-width: 1140px; margin: 40px auto; padding: 0 20px; }
+.section-header { margin-bottom: 24px; }
+.section-header h2 { font-size: 20px; font-weight: 800; color: var(--primary); }
+.section-header p { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.guide-card {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid #e2e8f0;
+}
+.card-image-box { position: relative; width: 100%; height: 200px; }
+.card-image-box img { width: 100%; height: 100%; object-fit: cover; }
+.badge-rating { position: absolute; top: 12px; right: 12px; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(4px); padding: 2px 8px; border-radius: 50px; font-size: 11px; font-weight: 700; display: flex; align-items: center; gap: 3px; color: #222; }
+.badge-rating i { color: #f59e0b; }
+
+.card-body { padding: 16px; }
+.card-body h3 { font-size: 16px; font-weight: 700; color: var(--primary); margin-bottom: 2px; }
+.location { font-size: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 3px; margin-bottom: 12px; }
+.location i { color: var(--accent); }
+.languages { display: flex; gap: 4px; }
+.languages span { background: #f1f5f9; color: var(--text-main); font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 50px; }
+
+/* ====================================================
+   Ajustes de Responsividade (Foco em Smartphone/Tablet)
+   ==================================================== */
+
+@media (max-width: 992px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    /* Navbar com input visível e botão hambúrguer ordenado */
+    .navbar { padding: 12px 16px; }
+    .hamburger { display: flex; order: 3; }
+    
+    /* Centraliza o texto do placeholder no mobile */
+    .search-box { display: flex; order: 2; max-width: 180px; padding: 6px 12px; }
+    .search-box input { text-align: center; } 
+    .logo { order: 1; font-size: 16px; }
+
+    /* Menu Lateral Centrado */
+    .nav-menu {
+        position: fixed;
+        top: 61px;
+        right: -100%;
+        width: 260px;
+        height: calc(100vh - 61px);
+        background: var(--surface);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+        transition: 0.3s ease;
+    }
+    .nav-menu ul { flex-direction: column; gap: 0; padding-top: 16px; text-align: center; }
+    .nav-menu ul li a { display: block; padding: 16px 24px; border-bottom: 1px solid #f1f5f9; font-size: 15px; }
+    .nav-menu.active { right: 0; }
+
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    /* Carrossel e categorias mobile totalmente centralizados */
+    .carousel-container { height: 45vh; }
+    .slide { padding: 0 16px; justify-content: center; text-align: center; }
+    .slide::before { background: rgba(15, 23, 42, 0.4); } /* Deixa o gradiente uniforme para leitura centralizada */
+    .slide-content { padding: 20px; display: flex; flex-direction: column; align-items: center; max-width: 90%; }
+    .slide-content h1 { font-size: 22px; }
+    
+    /* Categorias com padding inicial para não colar na borda esquerda */
+    .categories-container { justify-content: flex-start; overflow-x: auto; gap: 24px; padding: 16px 24px; }
+    .categories-container::-webkit-scrollbar { display: none; }
+
+    /* Seção de guias centralizando o título do bloco */
+    .main-section { padding: 0 0 0 20px; margin: 30px auto; } /* Deixa margem para o scroll do card fluir */
+    .section-header { text-align: center; padding-right: 20px; } /* Centraliza cabeçalho da seção */
+    
+    /* Configuração dos Cards com conteúdos centralizados */
+    .cards-grid { 
+        display: flex; 
+        overflow-x: auto; 
+        gap: 16px; 
+        padding-bottom: 15px;
+        scroll-snap-type: x mandatory;
+    }
+    .cards-grid::-webkit-scrollbar { display: none; }
+
+    .guide-card { 
+        min-width: 220px; 
+        max-width: 220px;
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza a estrutura interna do card */
+    }
+    .card-image-box { height: 150px; } 
+    
+    .card-body { 
+        padding: 14px; 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; /* Alinha blocos do texto na vertical centralizada */
+        text-align: center;  /* Centraliza os textos */
+        width: 100%;
+    }
+    .card-body h3 { font-size: 15px; }
+    .location { justify-content: center; } /* Garante que o ícone de pin e texto fiquem juntos no meio */
+    .languages { justify-content: center; width: 100%; } /* Centraliza as tags de idioma */
+}

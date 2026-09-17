@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar no Celular</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+<body>
+
+<header class="navbar">
+    <div class="logo">
+        <img src="logozone.png" alt="Logo">
+    </div>
+
+    <div class="search-box">
+        <input type="text" placeholder="Buscar...">
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <nav class="menu" id="menu">
+        <a href="#">Início</a>
+        <a href="#">Sobre</a>
+        <a href="#">Serviços</a>
+        <a href="#">Contato</a>
+    </nav>
+</header>
+
+
+
+<div class="categories">
+
+  <div class="category" data-page="house.html">
+    <div class="icon">🏠</div>
+    <div class="label">House</div>
+  </div>
+
+  <div class="category" data-page="villa.html">
+    <div class="icon">🏡</div>
+    <div class="label">Villa</div>
+  </div>
+
+  <div class="category" data-page="apartment.html">
+    <div class="icon">🏢</div>
+    <div class="label">Apartment</div>
+  </div>
+
+  <div class="category" data-page="bungalow.html">
+    <div class="icon">🛖</div>
+    <div class="label">Bungalow</div>
+  </div>
+
+</div>
+
+<script src="categories.js"></script>
+
+
+<div class="post-card">
+    <div class="post-header">
+        <img src="img/user.png" class="user-photo">
+        <div>
+            <h3 class="user-name">Maria Silva</h3>
+            <p class="post-info">Rio de Janeiro • 12/10/2025</p>
+        </div>
+    </div>
+
+    <p class="post-text">
+        Visitei o Pão de Açúcar hoje! A vista estava maravilhosa e super recomendo o passeio!
+    </p>
+
+    <div class="post-image">
+        <img src="img/pao-de-acucar.jpg" alt="Foto da viagem">
+    </div>
+
+    <div class="post-actions">
+        <button class="btn-action" onclick="curtirPost()">❤️ Curtir</button>
+        
+    </div>
+</div>
+
+
+
+
+            <script src="menu.js"></script>
+
+</body>
+</html>

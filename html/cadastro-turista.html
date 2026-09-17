@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Turista</title>
+    <link rel="stylesheet" href="style/cadastro-turista.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1 class="logo">Zone</h1>
+        <h2 class="titulo">Cadastre-se como Turista</h2>
+        <p class="subtitulo">Descubra novos destinos</p>
+
+        <form id="formCadastro">
+           <div class="input-box">
+    <img src="imagems/usuario.png" class="icon">
+    <input type="text" placeholder="Digite seu nome" required>
+</div>
+
+<div class="input-box">
+    <img src="imagems/e-mail.png" class="icon">
+    <input type="email" placeholder="Digite seu email" required>
+</div>
+
+<div class="input-box">
+    <img src="imagems/telefone.png" class="icon">
+    <input type="tel" placeholder="+55 • (XX) XXXXX-XXXX" required>
+</div>
+
+<div class="input-box">
+    <img src="imagems/senha.png" class="icon">
+    <input type="password" placeholder="Mínimo 8 caracteres" minlength="8" required>
+</div>
+
+<div class="input-box file-box">
+    <img src="imagems/camera.png" class="icon">
+    <label class="file-btn">Escolher foto</label>
+    <input type="file" hidden>
+</div>
+
+            <button type="submit" class="btn">Cadastrar</button>
+        </form>
+
+        <p class="login-text">Já tem conta? <a href="#" id="facaLogin">Faça login</a></p>
+    </div>
+
+    <script src="js/cadastro-turista.js"></script>
+
+</body>
+</html>

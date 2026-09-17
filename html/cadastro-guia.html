@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | Guia Turístico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style/cadastro-guia.css"> 
+</head>
+<body>
+    <div class="registration-screen">
+        <div class="registration-container">
+            
+            <div class="header-register">
+                <img src="imagems/logozone.png" alt="Logo Zone" class="logo-small">
+                <h1>Cadastre-se como Guia</h1>
+                <p class="subtitle">Seja um guia turístico profissional</p>
+            </div>
+
+            <form class="register-form">
+                
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Nome completo" required>
+                </div>
+                
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="Email profissional" required>
+                </div>
+                
+                <div class="input-group split-group">
+                    <div class="phone-input">
+                        <i class="fas fa-phone-alt"></i>
+                        <input type="tel" placeholder="Telefone" required>
+                    </div>
+                    
+                    <div class="select-input state-select">
+                        <select required>
+                            <option value="" disabled selected>UF</option>
+                            <option value="AC">AC</option>
+                            <option value="AL">AL</option>
+                            <option value="SP">SP</option>
+                            <option value="SP">SP</option>
+                             <option value="SP">SP</option>
+                             <option value="SP">SP</option>
+                             <option value="SP">SP</option>
+                             <option value="SP">SP</option>
+                             <option value="SP">SP</option>
+        
+                            </select>
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                </div>
+
+                <div class="input-group split-group">
+                    <div class="icon-input">
+                        <i class="fas fa-award"></i>
+                        <input type="text" placeholder="Especialização" required>
+                    </div>
+                    
+                    <div class="select-input culture-select">
+                        <select required>
+                            <option value="" disabled selected>Cultura</option>
+                            <option value="historia">História</option>
+                            <option value="gastronomia">Gastronomia</option>
+                            <option value="eco">Ecoturismo</option>
+                            <option value="aventura">Aventura</option>
+                        </select>
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <i class="fas fa-star"></i>
+                    <input type="number" placeholder="Anos de Experiência" min="" required>
+                </div>
+
+                <div class="input-group textarea-group">
+                    <i class="fas fa-file-alt"></i>
+                    <textarea id="sobre-voce" placeholder="Sobre você" rows="3">Fale um pouco sobre sua experiência e paixão por guiar.</textarea>
+                </div>
+                
+                <div class="input-group file-group">
+                    <i class="fas fa-camera"></i>
+                    <span class="file-label" id="label-profile-photo">Foto de perfil</span>
+                    <button type="button" class="upload-button" onclick="document.getElementById('profile-photo').click()">Escolher foto</button>
+                    <input type="file" id="profile-photo" accept="image/*" style="display: none;">
+                </div>
+
+                <div class="input-group file-group">
+                    <i class="fas fa-certificate"></i>
+                    <span class="file-label" id="label-certification">Certificação profissional</span>
+                    <button type="button" class="upload-button" onclick="document.getElementById('certification-file').click()">Fazer upload</button>
+                    <input type="file" id="certification-file" accept=".pdf,.doc,.docx,image/*" style="display: none;">
+                </div>
+
+                <button type="submit" class="register-button">Cadastrar</button>
+
+                <div class="login-link">
+                    <span>Já tem conta?</span> <a href="login-turista.html">Faça login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <form id="form-cadastro">
+   <button type="submit">Finalizar Cadastro</button>
+</form>
+    <script src="js/cadastro-guia.js"></script> 
+</body>
+</html>

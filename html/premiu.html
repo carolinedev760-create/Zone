@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Plano Premium</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style/premiu.css">
+</head>
+<body>
+
+
+<header class="topo">
+  <h1>Planos Premium</h1>
+  <p>Escolha o plano ideal para sua jornada</p>
+</header>
+
+<section class="container">
+
+  <h2 class="titulo"> Para Turistas</h2>
+  <div class="cards">
+
+    <div class="card">
+      <h3> Turista Premium</h3>
+      <p class="preco">R$ 19,90</p>
+      <ul>
+        <li>✔ Mapas interativos</li>
+        <li>✔ Roteiros prontos</li>
+        <li>✔ Dicas locais</li>
+        <li>✔ Suporte básico</li>
+      </ul>
+      <button onclick="assinar('Turista Premium')">Assinar</button>
+    </div>
+
+    <div class="card destaque">
+      <span class="badge">Mais popular</span>
+      <h3> Turista Pro</h3>
+      <p class="preco">R$ 29,90</p>
+      <ul>
+        <li>✔ Tudo do Premium</li>
+        <li>✔ Roteiros personalizados</li>
+        <li>✔ Mapas offline</li>
+        <li>✔ Prioridade no suporte</li>
+      </ul>
+      <button class="btn-destaque" onclick="assinar('Turista Pro')">
+        Assinar Pro
+      </button>
+    </div>
+
+  </div>
+
+  <h2 class="titulo"> Para Guias Turísticos</h2>
+  <div class="cards">
+
+    <div class="card">
+      <h3> Guia Premium</h3>
+      <p class="preco">R$ 24,90</p>
+      <ul>
+        <li>✔ Perfil profissional</li>
+        <li>✔ Receber turistas</li>
+        <li>✔ Avaliações</li>
+        <li>✔ Agenda simples</li>
+      </ul>
+      <button onclick="assinar('Guia Premium')">Tornar-se Guia</button>
+    </div>
+
+    <div class="card destaque">
+      <span class="badge">Elite</span>
+      <h3> Guia Elite</h3>
+      <p class="preco">R$ 59,90</p>
+      <ul>
+        <li>✔ Tudo do Premium</li>
+        <li>✔ Destaque máximo</li>
+        <li>✔ Selo verificado</li>
+        <li>✔ Suporte exclusivo</li>
+      </ul>
+      <button class="btn-destaque" onclick="assinar('Guia Elite')">
+        Virar Elite
+      </button>
+    </div>
+
+  </div>
+
+</section>
+
+
+<script src="js/premiu.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/perfil.css">
+    <title>Perfil</title>
+</head>
+<body>
+<nav class="side-menu" id="sideMenu">
+    <div class="menu-header">
+      <div class="menu-icon" id="menuIcon">&#9776;</div> <!-- ICONE NO LUGAR DA FOTO -->
+        <h3>Ana Silva</h3>
+        <p>Travel Enthusiast</p>
+    </div>
+
+    <ul>
+        <li onclick="goTo('profile.html')">Perfil</li>
+        <li onclick="goTo('favoritos.html')">Favoritos</li>
+        <li onclick="goTo('viagens.html')">Minhas Viagens</li>
+        <li onclick="goTo('config.html')">Configurações</li>
+        <li onclick="closeMenu()" class="sair">Fechar</li>
+    </ul>
+</nav>
+
+
+    <!-- SOMBRA AO ABRIR MENU -->
+    <div id="overlay" class="overlay" onclick="closeMenu()"></div>
+
+    <!-- TOPO -->
+    <header class="top-bar">
+        <img src="menu.png" class="icon-top" onclick="openMenu()">
+        <img src="perfil.jpg" class="icon-perfil">
+        <img src="fav.png" class="icon-top">
+    </header>
+
+    <!-- CARD DO PERFIL -->
+    <section class="profile-card">
+        <img src="perfil.jpg" class="profile-photo">
+
+        <h2>Ana Silva</h2>
+        <p class="bio">28 • Travel Enthusiast</p>
+
+        <div class="stats">
+            <div>
+                <h3>152</h3>
+                <span>Travel</span>
+            </div>
+            <div>
+                <h3>48</h3>
+                <span>Saved</span>
+            </div>
+            <div>
+                <h3>127</h3>
+                <span>Reviews</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- POSTS -->
+    <h3 class="title-section">My Posts</h3>
+
+    <div class="posts-grid">
+        <div class="post-card" onclick="openMenuPage()">
+            <img src="img1.jpg">
+            <p class="post-title">Broussier Les Juks</p>
+        </div>
+
+        <div class="post-card" onclick="openMenuPage()">
+            <img src="img2.jpg">
+            <p class="post-title">Spanish Over</p>
+        </div>
+
+        <div class="post-card" onclick="openMenuPage()">
+            <img src="img3.jpg">
+            <p class="post-title">Mountain Trip</p>
+        </div>
+
+        <div class="post-card" onclick="openMenuPage()">
+            <img src="img4.jpg">
+            <p class="post-title">Forest Route</p>
+        </div>
+    </div>
+
+<script src="js/perfil.js"></script>
+</body>
+</html>
