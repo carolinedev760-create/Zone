@@ -1,0 +1,341 @@
+/* RESET E CONFIGURAÇÕES GERAIS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+  color: #2c3e35;
+  background-color: #ffffff;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 80px;
+  border-bottom: 1px solid #ebedef;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #2d6a4f;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.logo-icon {
+  font-size: 26px;
+}
+
+.nav-center a {
+  text-decoration: none;
+  color: #52796f;
+  margin: 0 16px;
+  font-size: 16px;
+  font-weight: 500;
+  padding-bottom: 4px;
+}
+
+.nav-center a.active, 
+.nav-center a:hover {
+  color: #2d6a4f;
+  font-weight: 600;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.host-text {
+  text-decoration: none;
+  color: #222;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 22px;
+  transition: background-color 0.2s ease;
+}
+
+.host-text:hover, .globe-btn:hover {
+  background-color: #f7f7f7;
+}
+
+.globe-btn {
+  background: none;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #dddddd;
+  padding: 5px 5px 5px 12px;
+  border-radius: 21px;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+}
+
+.user-menu:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+}
+
+.avatar {
+  font-size: 28px;
+  color: #717171;
+}
+
+/* BARRA DE BUSCA */
+.search-section {
+  display: flex;
+  justify-content: center;
+  padding: 20px 80px 30px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #dddddd;
+  border-radius: 40px;
+  padding: 8px 8px 8px 24px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  max-width: 850px;
+  width: 100%;
+}
+
+.search-option {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 0 12px;
+}
+
+.search-option label {
+  font-size: 12px;
+  font-weight: 800;
+  color: #222;
+}
+
+.search-option input, 
+.select-guide {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #717171;
+  background: transparent;
+  width: 100%;
+  cursor: pointer;
+}
+
+.divider {
+  width: 1px;
+  height: 32px;
+  background-color: #dddddd;
+}
+
+.search-btn {
+  background-color: #2d6a4f;
+  color: white;
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease;
+}
+
+.search-btn:hover {
+  background-color: #0e0d0d;
+}
+
+/* CONTAINER & GRID DE CARDS */
+.container {
+  padding: 0 80px 40px;
+}
+
+.section-title {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.card-image {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heart-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  filter: drop-shadow(0 0 2px rgba(0,0,0,0.5));
+}
+
+/* BADGE DO GUIA SOBRE A IMAGEM */
+.guide-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  backdrop-filter: blur(4px);
+}
+
+.guide-avatar {
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.card-info {
+  padding: 16px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 6px;
+  gap: 8px;
+}
+
+.card-header h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+}
+
+.rating {
+  font-size: 13px;
+  font-weight: bold;
+  color: #111011;
+  white-space: nowrap;
+}
+
+.guide-details, .dates {
+  font-size: 13px;
+  color: #717171;
+  margin-top: 2px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.price {
+  font-size: 14px;
+  color: #222;
+}
+
+.book-btn {
+  background-color: #008489;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.book-btn:hover {
+  background-color: #00666a;
+}
+
+/* RESPONSIVIDADE (Telas menores de celular real) */
+@media (max-width: 768px) {
+  .navbar, .search-section, .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .nav-center, .host-text {
+    display: none;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    align-items: stretch;
+    border-radius: 20px;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .search-btn {
+    width: 100%;
+    border-radius: 10px;
+    height: 44px;
+  }
+}

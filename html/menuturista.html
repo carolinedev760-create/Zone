@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turista zone</title>
+  
+  <link rel="stylesheet" href="style/menuturista.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="navbar">
+    <div class="logo">
+      <i class="fa-solid fa-compass logo-icon"></i>
+      <span class="logo-text">Zone</span>
+    </div>
+
+    <nav class="nav-center">
+      <a href="#" class="active">Guias Locais</a>
+      <a href="#">Experiências</a>
+    </nav>
+
+    <div class="nav-right">
+      <a href="#" class="host-text">Seja um Guia Local</a>
+      <button class="globe-btn" aria-label="Idioma do Guia">
+        <i class="fa-solid fa-language"></i>
+      </button>
+      <div class="user-menu" tabindex="0">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-circle-user avatar"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- BARRA DE BUSCA DE GUIAS -->
+  <section class="search-section">
+    <div class="search-bar">
+      
+      <div class="search-option">
+        <label for="destino">Destino</label>
+        <input type="text" id="destino" placeholder="Para onde você vai?">
+      </div>
+      
+      <div class="divider"></div>
+
+      <div class="search-option">
+        <label for="data">Data do Passeio</label>
+        <input type="date" id="data">
+      </div>
+      
+      <div class="divider"></div>
+
+      <div class="search-option">
+        <label for="idioma">Idioma do Guia</label>
+        <select id="idioma" class="select-guide">
+          <option value="">Qualquer idioma</option>
+          <option value="pt">Português</option>
+          <option value="en">Inglês</option>
+          <option value="es">Espanhol</option>
+        </select>
+      </div>
+      
+      <button class="search-btn" aria-label="Buscar Guia">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+      
+    </div>
+  </section>
+
+  <!-- LISTA DE GUIAS DISPONÍVEIS -->
+  <main class="container">
+    <h2 class="section-title">Guias em Destaque</h2>
+
+    <div class="grid">
+
+      <!-- Card Guia 1 -->
+      <article class="card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500" alt="Rio de Janeiro">
+          <button class="heart-btn" aria-label="Favoritar"><i class="fa-regular fa-heart"></i></button>
+          <div class="guide-badge">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" alt="Foto Guia" class="guide-avatar">
+            <span>Guia Carlos</span>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3>Rio de Janeiro - Trilha & História</h3>
+            <span class="rating"><i class="fa-solid fa-star"></i> 4.9</span>
+          </div>
+          <p class="guide-details"><i class="fa-solid fa-language"></i> Português, Inglês</p>
+          <p class="dates">Disponível esta semana</p>
+          <div class="card-footer">
+            <p class="price"><strong>R$ 150</strong> / pessoa</p>
+            <button class="book-btn">Agendar</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card Guia 2 -->
+      <article class="card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=500" alt="Gramado">
+          <button class="heart-btn" aria-label="Favoritar"><i class="fa-regular fa-heart"></i></button>
+          <div class="guide-badge">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="Foto Guia" class="guide-avatar">
+            <span>Guia Ana</span>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3>Gramado - Rota Gastronômica</h3>
+            <span class="rating"><i class="fa-solid fa-star"></i> 5.0</span>
+          </div>
+          <p class="guide-details"><i class="fa-solid fa-language"></i> Português, Espanhol</p>
+          <p class="dates">Disponível amanhã</p>
+          <div class="card-footer">
+            <p class="price"><strong>R$ 200</strong> / pessoa</p>
+            <button class="book-btn">Agendar</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card Guia 3 -->
+      <article class="card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=500" alt="Florianópolis">
+          <button class="heart-btn" aria-label="Favoritar"><i class="fa-regular fa-heart"></i></button>
+          <div class="guide-badge">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100" alt="Foto Guia" class="guide-avatar">
+            <span>Guia Marina</span>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3>Florianópolis - Praias Secretas</h3>
+            <span class="rating"><i class="fa-solid fa-star"></i> 4.95</span>
+          </div>
+          <p class="guide-details"><i class="fa-solid fa-language"></i> Português, Inglês, Espanhol</p>
+          <p class="dates">Disponível este fim de semana</p>
+          <div class="card-footer">
+            <p class="price"><strong>R$ 180</strong> / pessoa</p>
+            <button class="book-btn">Agendar</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card Guia 4 -->
+      <article class="card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=500" alt="Campos do Jordão">
+          <button class="heart-btn" aria-label="Favoritar"><i class="fa-regular fa-heart"></i></button>
+          <div class="guide-badge">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100" alt="Foto Guia" class="guide-avatar">
+            <span>Guia Lucas</span>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="card-header">
+            <h3>Campos do Jordão - Ecoturismo</h3>
+            <span class="rating"><i class="fa-solid fa-star"></i> 4.88</span>
+          </div>
+          <p class="guide-details"><i class="fa-solid fa-language"></i> Português</p>
+          <p class="dates">Disponível em breve</p>
+          <div class="card-footer">
+            <p class="price"><strong>R$ 160</strong> / pessoa</p>
+            <button class="book-btn">Agendar</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <script src="js/menuturista.js"></script>
+</body>
+</html>
