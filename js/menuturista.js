@@ -1,126 +1,122 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // 1. Mapeamento dos elementos
+    const userMenu = document.querySelector('.user-menu');
+    const avatarIcon = document.querySelector('.avatar');
 
-  // ==========================================
-  // 1. REDIRECIONAMENTO DE PERFIS
-  // ==========================================
+    // 2. Carregar dados e Foto do Turista Logado
+    const usuarioSalvoJSON = localStorage.getItem('usuarioLogado');
 
-  // Perfil Próprio do Turista (Menu do Usuário / Avatar)
-  const userMenu = document.querySelector('.user-menu');
-  if (userMenu) {
-    userMenu.addEventListener('click', () => {
-      window.location.href = 'perfilturista.html';
-    });
-  }
+    if (usuarioSalvoJSON) {
+        const usuario = JSON.parse(usuarioSalvoJSON);
 
-  // Visualização PÚBLICA do Perfil do Guia (Somente Leitura)
-  const cards = document.querySelectorAll('.card');
+        // Se o usuário tiver foto cadastrada, substitui o ícone do FontAwesome pela tag <img>
+        if (usuario.foto && avatarIcon) {
+            const imgAvatar = document.createElement('img');
+            imgAvatar.src = usuario.foto;
+            imgAvatar.alt = "Foto de Perfil";
+            imgAvatar.id = "fotoPerfilHeader";
+            imgAvatar.style.width = '30px';
+            imgAvatar.style.height = '30px';
+            imgAvatar.style.borderRadius = '50%';
+            imgAvatar.style.objectFit = 'cover';
+            imgAvatar.style.cursor = 'pointer';
 
-  cards.forEach((card) => {
-    const nomeGuia = card.querySelector('.guide-badge span')?.textContent.trim() || 'guia';
-    const guiaId = encodeURIComponent(nomeGuia.toLowerCase().replace(/\s+/g, '-'));
+            // Redireciona para perfil.html ao clicar DIRETO na foto de perfil
+            imgAvatar.addEventListener('click', (e) => {
+                e.stopPropagation(); // Impede de acionar o evento do menu pai
+                window.location.href = 'perfil.html';
+            });
 
-    const abrirPerfilPublicoGuia = (e) => {
-      e.stopPropagation();
-      // Redireciona em modo de visualização pública
-      window.location.href = `perfilguia.html?id=${guiaId}&mode=view`;
-    };
-
-    // Clique no selo/foto do guia
-    const guideBadge = card.querySelector('.guide-badge');
-    if (guideBadge) {
-      guideBadge.addEventListener('click', abrirPerfilPublicoGuia);
+            // Substitui o ícone padrão pela foto
+            avatarIcon.replaceWith(imgAvatar);
+        }
     }
 
-    // Clique no card completo (exceto botões de ação)
-    card.addEventListener('click', (e) => {
-      if (!e.target.closest('.heart-btn') && !e.target.closest('.book-btn')) {
-        abrirPerfilPublicoGuia(e);
-      }
+    // Se o usuário ainda não enviou foto, o ícone de avatar padrão também leva ao perfil ao ser clicado
+    const elementoAvatar = document.getElementById('fotoPerfilHeader') || document.querySelector('.avatar');
+    if (elementoAvatar) {
+        elementoAvatar.addEventListener('click', (e) => {
+            e.stopPropagation();
+            window.location.href = 'perfil.html';
+        });
+    }
+
+    // Menu do Usuário (clique nas barrinhas ☰ ou na área em volta) -> Pergunta sobre Logout
+    if (userMenu) {
+        userMenu.addEventListener('click', () => {
+            const acao = confirm("Deseja sair da sua conta?\n[OK] Sair | [Cancelar] Continuar navegando");
+            if (acao) {
+                localStorage.removeItem('usuarioLogado');
+                window.location.href = 'login-turista.html';
+            }
+        });
+    }
+
+    // 3. Sistema de Filtro/Pesquisa de Guias
+    const inputDestino = document.getElementById('destino');
+    const selectIdioma = document.getElementById('idioma');
+    const searchBtn = document.querySelector('.search-btn');
+    const cards = document.querySelectorAll('.card');
+
+    if (searchBtn) {
+        searchBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            const termoDestino = inputDestino.value.trim().toLowerCase();
+            const idiomaSelecionado = selectIdioma.value.toLowerCase();
+
+            cards.forEach(card => {
+                const titulo = card.querySelector('h3').textContent.toLowerCase();
+                const idiomasTexto = card.querySelector('.guide-details').textContent.toLowerCase();
+
+                let atendeIdioma = true;
+                if (idiomaSelecionado === 'pt') {
+                    atendeIdioma = idiomasTexto.includes('português');
+                } else if (idiomaSelecionado === 'en') {
+                    atendeIdioma = idiomasTexto.includes('inglês');
+                } else if (idiomaSelecionado === 'es') {
+                    atendeIdioma = idiomasTexto.includes('espanhol');
+                }
+
+                const atendeDestino = !termoDestino || titulo.includes(termoDestino);
+
+                if (atendeDestino && atendeIdioma) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    }
+
+    // 4. Funcionalidade dos Botões de Favoritar
+    const heartBtns = document.querySelectorAll('.heart-btn');
+
+    heartBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const icon = btn.querySelector('i');
+            
+            if (icon.classList.contains('fa-regular')) {
+                icon.classList.remove('fa-regular');
+                icon.classList.add('fa-solid');
+                icon.style.color = '#e74c3c';
+            } else {
+                icon.classList.remove('fa-solid');
+                icon.classList.add('fa-regular');
+                icon.style.color = '';
+            }
+        });
     });
-  });
 
-  // ==========================================
-  // 2. SISTEMA DE FAVORITOS (CORAÇÃO)
-  // ==========================================
-  const heartButtons = document.querySelectorAll('.heart-btn');
+    // 5. Botões de Agendar
+    const bookBtns = document.querySelectorAll('.book-btn');
 
-  heartButtons.forEach((btn) => {
-    btn.addEventListener('click', (event) => {
-      event.stopPropagation();
-      const icon = btn.querySelector('i');
-
-      if (icon.classList.contains('fa-regular')) {
-        icon.classList.remove('fa-regular');
-        icon.classList.add('fa-solid');
-        icon.style.color = '#ff385c';
-      } else {
-        icon.classList.remove('fa-solid');
-        icon.classList.add('fa-regular');
-        icon.style.color = 'white';
-      }
+    bookBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const card = e.target.closest('.card');
+            const tituloPasseio = card.querySelector('h3').textContent;
+            
+            alert(`Reserva iniciada para: "${tituloPasseio}".`);
+        });
     });
-  });
-
-  // ==========================================
-  // 3. FILTRO DE BUSCA POR DESTINO
-  // ==========================================
-  const searchBtn = document.querySelector('.search-btn');
-  const inputDestino = document.getElementById('destino');
-
-  function filtrarGuias() {
-    const termoBusca = inputDestino.value.toLowerCase().trim();
-
-    cards.forEach((card) => {
-      const titulo = card.querySelector('.card-header h3').textContent.toLowerCase();
-      const localizacao = card.querySelector('.card-image img').alt.toLowerCase();
-
-      if (titulo.includes(termoBusca) || localizacao.includes(termoBusca)) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  }
-
-  if (searchBtn) {
-    searchBtn.addEventListener('click', filtrarGuias);
-  }
-
-  if (inputDestino) {
-    inputDestino.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        filtrarGuias();
-      }
-    });
-  }
-
-  // ==========================================
-  // 4. AÇÃO DE AGENDAMENTO
-  // ==========================================
-  const bookButtons = document.querySelectorAll('.book-btn');
-
-  bookButtons.forEach((btn) => {
-    btn.addEventListener('click', (event) => {
-      event.stopPropagation();
-
-      const card = btn.closest('.card');
-      const nomeGuia = card.querySelector('.guide-badge span').textContent;
-      const passeios = card.querySelector('.card-header h3').textContent;
-      const preco = card.querySelector('.price strong').textContent;
-
-      const confirmacao = confirm(
-        `Deseja solicitar o agendamento com o ${nomeGuia}?\n\n` +
-        `Passeio: ${passeios}\n` +
-        `Valor: ${preco} / pessoa`
-      );
-
-      if (confirmacao) {
-        alert(`Solicitação enviada com sucesso para o ${nomeGuia}! Ele entrará em contato em breve.`);
-        btn.textContent = 'Solicitado';
-        btn.style.backgroundColor = '#717171';
-        btn.disabled = true;
-      }
-    });
-  });
-
 });
